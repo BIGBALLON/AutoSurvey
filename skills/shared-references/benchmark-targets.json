@@ -1,0 +1,101 @@
+{
+  "_README": [
+    "Machine-readable benchmark targets — the single source of truth for",
+    "every consumer that asks 'how does this run compare to the benchmark'.",
+    "The dashboard diff panel, the audit cap calibrations, and any future",
+    "regression-bar test all read this file so they stay calibrated against",
+    "the same constants.",
+    "",
+    "Provenance: Deli Chen et al., 'From Copilots to Colleagues:",
+    "A Survey of Autonomous Research Agents', 45 pp / NeurIPS-style preprint.",
+    "Numbers extracted from the reference PDF on 2026-05-29."
+  ],
+
+  "benchmark": {
+    "title":     "From Copilots to Colleagues: A Survey of Autonomous Research Agents",
+    "year":      2026,
+    "venue":     "NeurIPS-style preprint",
+    "pages":     45,
+    "body_words": 17457,
+    "bib_entries": 95,
+    "annotated_bib_entries": 95,
+    "inline_citations":      147,
+    "citation_density_per_1k_words": 8.4,
+    "tables":                3,
+    "figures":               6,
+    "top_level_sections":    8,
+    "subsections":          27,
+    "avg_words_per_leaf_section": 553,
+    "cross_cutting_matrix": {
+      "present": true,
+      "rows":    17,
+      "cols":     6
+    },
+    "open_problems_items":     6,
+    "future_directions_items": 6,
+    "open_future_paired":      true,
+    "conclusion_words":      557,
+    "contributions_items":     4,
+    "contributions_with_section_ref": 4
+  },
+
+  "metrics": [
+    {"key": "pages",                "label": "Pages",                          "unit": "",      "source": "stats.document.estimated_pages"},
+    {"key": "body_words",           "label": "Body words",                     "unit": "",      "source": "stats.document.body_words"},
+    {"key": "bib_entries",          "label": "Bib entries",                    "unit": "",      "source": "stats.papers.in_corpus"},
+    {"key": "inline_citations",     "label": "Inline citations",               "unit": "",      "source": "stats.citations.total"},
+    {"key": "citation_density_per_1k_words",
+                                    "label": "Citations per 1K words",         "unit": "/1Kw",  "source": "audit.citation_density"},
+    {"key": "top_level_sections",   "label": "Top-level sections",             "unit": "",      "source": "stats.outline.sections"},
+    {"key": "cross_cutting_matrix_present",
+                                    "label": "Cross-cutting matrix",           "unit": "",      "source": "audit.cross_cutting_matrix.matrix"},
+    {"key": "open_problems_items",  "label": "Open-problem items",             "unit": "",      "source": "audit.open_problems_items"},
+    {"key": "future_directions_items",
+                                    "label": "Future-direction items",         "unit": "",      "source": "audit.future_directions_items"},
+    {"key": "conclusion_words",     "label": "Conclusion words",               "unit": "",      "source": "audit.conclusion_words"},
+    {"key": "contributions_items",  "label": "Contribution items",             "unit": "",      "source": "audit.contributions_items"}
+  ],
+
+  "tolerance": {
+    "_doc": "Per-metric Δ tolerances. A run within ±tolerance of the benchmark counts as 'on target' (green). Outside ±tolerance but on the same side counts as 'close' (amber). Anything else is 'gap' (red).",
+    "pages":                  {"abs": 5},
+    "body_words":             {"rel": 0.20},
+    "bib_entries":            {"abs": 15},
+    "inline_citations":       {"rel": 0.30},
+    "citation_density_per_1k_words": {"abs": 1.5},
+    "top_level_sections":     {"abs": 1},
+    "open_problems_items":    {"abs": 1},
+    "future_directions_items": {"abs": 1},
+    "conclusion_words":       {"abs": 100},
+    "contributions_items":    {"abs": 1}
+  },
+
+  "audit_thresholds": {
+    "_doc": [
+      "Hard thresholds tools/audit_writing.py enforces on the assembled .tex.",
+      "Living here (rather than as module-level constants) keeps the",
+      "dashboard tolerances and the audit gate calibrated from the same",
+      "numbers. Each value is justified inline.",
+      "",
+      "If you tighten or relax a threshold, run the full test suite — the",
+      "survey_run_dir fixture exercises every invariant against these",
+      "exact constants."
+    ],
+    "citation_density_cap":     12.0,
+    "_citation_density_cap_why": "1.5× the benchmark's 8.4 — leaves headroom for citation-dense sections like Related Work without licensing the 'stuff every related work into the parenthetical' anti-pattern.",
+    "sentence_citation_cap":    3,
+    "_sentence_citation_cap_why": "≥ 4 cites in one sentence is the hallmark of bare-list citing; require those works to be named in prose instead.",
+    "annotated_bib_min_ratio":  0.80,
+    "_annotated_bib_min_ratio_why": "Benchmark hits 100%; 80% leaves 20% cushion for entries that legitimately lack _decision_summary (venue boilerplate, anthologies).",
+    "conclusion_min_words":     400,
+    "conclusion_max_words":     700,
+    "_conclusion_words_why":    "Benchmark sits at 557. The window 400-700 lets surveys with slightly different breadth hit the re-frame shape without enabling a bullet-list summary.",
+    "top_sections_min":         6,
+    "top_sections_max":         12,
+    "_top_sections_why":        "Benchmark sits at 8. Lower bound 6 forbids a flat (≤5, no narrative arc) layout. Upper bound 12 (was 9) gives broad / historical briefs — many dimensions, eras, or paradigm transitions — room to give each its own section instead of being forced to merge everything back into the same ~8-section skeleton (which made every survey look templated and capped length). Beyond 12 risks a lost-in-TOC sprawl.",
+    "subsections_min_per_nested": 3,
+    "nested_sections_min":      4,
+    "_nesting_why":             "≥ 4 sections must carry ≥ 3 subsections to produce the 'introduction → 4 patterns → 17 systems → 6 problems' rhythm the benchmark TOC has.",
+    "_no_aux_table_cap_why":    "We do NOT cap auxiliary table count. The relevant question is not 'how many tables' but 'is each table load-bearing'; the cross_cutting_matrix invariant enforces the latter by requiring every labelled aux table to be cited from the prose via \\ref{}/\\autoref{}. A run that ships 10 well-referenced tables passes; a run that ships 3 decorative ones fails. This delegates the count decision to the agent writing the survey, which is where it belongs."
+  }
+}

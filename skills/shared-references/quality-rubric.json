@@ -1,0 +1,104 @@
+{
+  "_README": [
+    "Machine-readable quality rubric for the LLM-as-judge survey evaluation.",
+    "Consumed by tools/quality_eval.py (prepare = build judge packet; score =",
+    "validate verdict + weighted aggregate + regression-bar compare).",
+    "",
+    "This is the SEMANTIC complement to the structural gates: audit_writing",
+    "checks that the 5-anchor/matrix/etc. are PRESENT; this rubric scores",
+    "whether the survey is actually good — contestable thesis, real synthesis,",
+    "insight, grounded evidence. Scores are 1-5 with anchored descriptors so",
+    "two judges (or the same judge across runs) stay calibrated.",
+    "",
+    "Weights sum to 1.0. The four edges that separate 'structurally fine' from",
+    "'world-class' (thesis, synthesis, insight, evidence) carry 70% of weight."
+  ],
+
+  "scale": {"min": 1, "max": 5},
+
+  "dimensions": [
+    {
+      "id": "thesis",
+      "label": "Thesis quality",
+      "weight": 0.20,
+      "question": "Is the central thesis contestable, falsifiable, and non-obvious — and does the survey commit to it rather than hedge?",
+      "descriptors": {
+        "1": "No thesis, or a bland truism nobody would dispute ('the field is advancing').",
+        "3": "A defensible thesis, but safe; the opposite is not seriously steelmanned.",
+        "5": "A sharp, falsifiable claim with a stated condition that would refute it; the opposite is steelmanned then rejected with evidence."
+      }
+    },
+    {
+      "id": "synthesis",
+      "label": "Synthesis vs summary",
+      "weight": 0.20,
+      "question": "Does the prose compare and contrast works along common axes, or walk paper-by-paper?",
+      "descriptors": {
+        "1": "Annotated bibliography: one paragraph per paper, no cross-comparison.",
+        "3": "Some grouping and comparison, but sections still drift into per-paper recaps.",
+        "5": "Consistently organised by idea/axis; methods are compared on shared dimensions and the trade-offs are made explicit."
+      }
+    },
+    {
+      "id": "insight",
+      "label": "Insight density",
+      "weight": 0.15,
+      "question": "Does the survey deliver non-obvious findings, reframings, and a real 'so-what' the reader could not get from abstracts alone?",
+      "descriptors": {
+        "1": "Pure recap; no original framing or takeaway.",
+        "3": "A few useful observations, but mostly restates what the papers say.",
+        "5": "Repeated non-obvious insights and a reframing that changes how the reader sees the field."
+      }
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence fidelity",
+      "weight": 0.15,
+      "question": "Are claims specific and grounded — exact numbers attributed to the right source, no vague hand-waving or unsourced figures?",
+      "descriptors": {
+        "1": "Vague claims, or numbers with no/with wrong attribution.",
+        "3": "Mostly grounded, but some claims are imprecise or weakly sourced.",
+        "5": "Specific, correctly attributed numbers throughout; every quantitative claim is traceable to a cited source."
+      }
+    },
+    {
+      "id": "coverage",
+      "label": "Coverage & balance",
+      "weight": 0.10,
+      "question": "Are the canonical AND recent works present, treated fairly, and within the brief's scope?",
+      "descriptors": {
+        "1": "Major canonical or recent works missing; scope drift or one-sided.",
+        "3": "Solid coverage with a few notable gaps or imbalances.",
+        "5": "Canonical lineage + latest frontier both covered, fairly weighted, on-scope."
+      }
+    },
+    {
+      "id": "structure",
+      "label": "Structure & visuals",
+      "weight": 0.10,
+      "question": "Do the taxonomy, comparison matrix, figures, and section flow genuinely aid understanding (not decoration)?",
+      "descriptors": {
+        "1": "Flat or chaotic structure; figures/tables absent or decorative.",
+        "3": "Reasonable structure; figures present but not all load-bearing.",
+        "5": "A taxonomy and matrix that carry argument; every figure/table earns its place and is referenced."
+      }
+    },
+    {
+      "id": "readability",
+      "label": "Readability & prose",
+      "weight": 0.10,
+      "question": "Is the prose clear, varied, and free of AI-isms and filler — pleasant to read end-to-end?",
+      "descriptors": {
+        "1": "Stilted, repetitive, AI-ism-laden, or hard to follow.",
+        "3": "Clear but occasionally generic or repetitive.",
+        "5": "Crisp, varied, confident academic prose a human reviewer would enjoy."
+      }
+    }
+  ],
+
+  "bar": {
+    "_doc": "Regression bar. A run PASSES when overall >= overall_min AND every dimension >= per_dimension_min. overall is reported on a 0-100 scale derived from the 1-5 weighted mean.",
+    "overall_min": 70,
+    "per_dimension_min": 3
+  }
+}

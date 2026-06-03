@@ -1,0 +1,62 @@
+% =====================================================================
+% Reference cross-cutting matrix — structural-template invariant 4.
+%
+% This LaTeX skeleton is the verbatim layout the writer prompt should
+% target when emitting the survey's *one* cross-cutting comparison
+% matrix. The example values are taken from the benchmark survey
+% (Deli Chen et al., 'From Copilots to Colleagues', Section 4.5,
+% '17 systems × 6 dimensions'); the writer fills in the rows from the
+% closed-set system list assembled in /survey-write Step 1.
+%
+% Conventions enforced by audit_writing.audit_structural_template:
+%   - Exactly one cross_cutting_matrix slot in outline.json.
+%   - Auxiliary tables capped at 3 (≤ 3 \begin{table} envs *besides*
+%     this matrix).
+%   - The matrix is full-page width (table*) so all dimensions fit.
+%
+% Typography conventions:
+%   - Use \toprule / \midrule / \bottomrule from booktabs.
+%   - Numeric cells right-aligned (S column type from siunitx if heavy
+%     numerics; otherwise plain c is fine).
+%   - Every \cite{} key in the matrix must be in the closed paper pool
+%     (filtered.jsonl). Phantom keys are caught at survey-verify.
+% =====================================================================
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Comparison of 17 autonomous research agents across six
+  dimensions. Codes: \emph{Autonomy} = L1--L5 (\S\,2.2);
+  \emph{Architecture} = SA (single-agent loop), MA (multi-agent),
+  H (hierarchical), TA (tool-augmented), \emph{Hyb} (hybrid);
+  \emph{Domain} = G (general), R (research), C (code),
+  S (science). \emph{Self-Improve.} indicates documented
+  self-modification capability. OS = open-source.}
+\label{tab:system-matrix}
+\begin{tabular}{l c c c l c c}
+\toprule
+\textbf{System} & \textbf{Autonomy} & \textbf{Architecture}
+  & \textbf{Domain} & \textbf{Tools}
+  & \textbf{Self-Improve.} & \textbf{OS} \\
+\midrule
+% --- example rows; replace with closed-set systems for the actual run ---
+AutoGPT \citep{richards2023autogpt}        & L3 & SA  & G & web, shell    & \xmark & \cmark \\
+BabyAGI \citep{nakajima2023babyagi}        & L3 & SA  & G & vector store  & \xmark & \cmark \\
+ReAct \citep{yao2023react}                 & L2 & SA  & G & search        & \xmark & \cmark \\
+Reflexion \citep{shinn2023reflexion}       & L3 & SA  & R & memory        & \cmark & \cmark \\
+LATS \citep{zhou2023lats}                  & L3 & SA  & R & MCTS          & \xmark & \cmark \\
+CAMEL \citep{li2023camel}                  & L3 & MA  & R & role-play     & \xmark & \cmark \\
+AutoGen \citep{wu2024autogen}              & L3 & MA  & R & code, tools   & \xmark & \cmark \\
+MetaGPT \citep{hong2024metagpt}            & L3 & MA  & C & SOP, code     & \xmark & \cmark \\
+ChatDev \citep{qian2024chatdev}            & L3 & MA  & C & code, doc     & \xmark & \cmark \\
+Devin \citep{cognition2024devin}           & L4 & H   & C & full IDE      & \xmark & \xmark \\
+Claude Code \citep{anthropic2024claudecode}& L4 & H   & C & repo, IDE     & \xmark & \xmark \\
+SWE-Agent \citep{yang2024sweagent}         & L4 & TA  & C & ACI, repo     & \xmark & \cmark \\
+GPT Researcher \citep{assafelovic2023}     & L3 & SA  & R & web, RAG      & \xmark & \cmark \\
+The AI Scientist \citep{lu2024aiscientist} & L4 & H   & R & code, paper   & \cmark & \cmark \\
+ResearchAgent \citep{baek2024researchagent}& L3 & H   & R & literature    & \xmark & \cmark \\
+ChemCrow \citep{bran2023chemcrow}          & L4 & TA  & S & chem tools    & \xmark & \cmark \\
+Coscientist \citep{boiko2023coscientist}   & L4 & H   & S & robot, lit    & \xmark & \xmark \\
+\bottomrule
+\end{tabular}
+\end{table*}

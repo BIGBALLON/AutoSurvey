@@ -1,0 +1,64 @@
+% =====================================================================
+% Reference contributions enumeration — structural-template invariant 8.
+%
+% The benchmark survey ('From Copilots to Colleagues', §1) ends its
+% Introduction with this exact contributions block. The shape is:
+%   - A 1-sentence framing line ("This survey makes <N> contributions
+%     to the field:").
+%   - An \begin{enumerate} block with one \item per contribution.
+%   - Each \item starts with a 2-4-word \textbf{Bold Lead.} naming the
+%     contribution category, followed by a one-sentence description in
+%     concrete nouns, and ends with a parenthesised section pointer
+%     (\S\,N).
+%
+% audit_writing.audit_structural_template's invariant-8 detector
+% accepts (\S\,N), (§N), (Section N), (Sec.\ N), and (Sec.\,N).
+% At least 75% of items must carry such a pointer. The benchmark
+% survey hits 4/4.
+%
+% Replace the verbatim lead phrases below with leads derived from the
+% chosen thesis's argument_steps; the structure itself must not
+% deviate.
+% =====================================================================
+
+\paragraph*{Contributions}
+This survey makes four contributions to the field:
+
+\begin{enumerate}
+  \item \textbf{Comprehensive Autonomy Taxonomy.} We propose and
+    validate an L1--L5 taxonomy of research agent autonomy
+    (analogous to SAE driving levels), providing a precise
+    vocabulary for characterising system capabilities and comparing
+    across architectures (\S\,2).
+
+  \item \textbf{Systematic Architecture Analysis.} We identify and
+    analyze the dominant architectural patterns---single-agent
+    loops, multi-agent systems, hierarchical orchestration, and
+    tool-augmented agents---with a comparative framework evaluating
+    trade-offs across scalability, cost, reliability, and human
+    oversight (\S\,3).
+
+  \item \textbf{Feature-Annotated System Comparison.} We provide
+    detailed analysis of 17 major systems across a six-dimensional
+    feature matrix, revealing historical maturation patterns and
+    identifying capability gaps (\S\,4).
+
+  \item \textbf{Research Agenda for Open Problems.} We identify six
+    fundamental challenges---cognitive loops, context limitations,
+    novelty evaluation, reproducibility, safety, and cost---and
+    propose concrete research directions for each, synthesizing
+    insights across the surveyed systems (\S\,6).
+\end{enumerate}
+
+% =====================================================================
+% Anti-patterns (audit will reject):
+%   - Bare bullet list (\\itemize) instead of \\enumerate — bullets
+%     don't number contributions; the reader cannot reference 'Item 3'.
+%   - Items without bold leads — the skim-reader has no anchor.
+%   - Items without section pointers — the contributions list reads as
+%     marketing rather than as a navigation aid.
+%   - Items pointing at multiple sections (e.g. "(§2, §3, §4)") — pick
+%     the one section that primarily carries the contribution.
+%   - "We discuss several important topics." — vague, no bold lead,
+%     no §N.
+% =====================================================================

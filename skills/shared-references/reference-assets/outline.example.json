@@ -1,0 +1,198 @@
+{
+  "_README": [
+    "Verbatim section structure of the benchmark survey (Deli Chen et al.,",
+    "'From Copilots to Colleagues: A Survey of Autonomous Research Agents',",
+    "45 pp / 95+ refs / 8 top-level sections / 27 subsections).",
+    "",
+    "This file is the reference shape that satisfies every outline-side",
+    "structural-template invariant (1, 4, 6). Keep it byte-stable; the",
+    "test suite asserts that validate_outline.py --strict-template gives",
+    "this file zero violations. When extending the schema, mirror the",
+    "change here too."
+  ],
+
+  "title": "From Copilots to Colleagues: A Survey of Autonomous Research Agents",
+  "thesis_id": "thesis_l1l5_autonomy",
+
+  "sections": [
+    {
+      "id": "01_intro",
+      "name": "Introduction",
+      "section_type": "intro",
+      "argues_for_thesis_step": null,
+      "subsections": [
+        {"id": "01a_motivation",     "name": "From copilots to colleagues"},
+        {"id": "01b_emergence",      "name": "Why now: capability + architecture + benchmarks"},
+        {"id": "01c_relationship",   "name": "Relationship to existing surveys"},
+        {"id": "01d_contributions",  "name": "Contributions and roadmap"}
+      ]
+    },
+
+    {
+      "id": "02_background",
+      "name": "Background and Problem Formulation",
+      "section_type": "background",
+      "argues_for_thesis_step": null,
+      "subsections": [
+        {"id": "02a_definitions",    "name": "Definitions"},
+        {"id": "02b_taxonomy",       "name": "Taxonomy of Autonomy Levels (L1-L5)"},
+        {"id": "02c_capabilities",   "name": "Required Capabilities"},
+        {"id": "02d_adjacent",       "name": "Relationship to Adjacent Fields"}
+      ]
+    },
+
+    {
+      "id": "03_architecture",
+      "name": "Architecture Patterns",
+      "section_type": "body",
+      "argues_for_thesis_step": "S2",
+      "argument_skeleton": {
+        "claim": "Four architectural patterns dominate the agent landscape; hybrids of them are the norm in production.",
+        "steelman": "...",
+        "evidence_claim_keys": [],
+        "concession": "...",
+        "so_what": "..."
+      },
+      "subsections": [
+        {"id": "03a_single_agent",    "name": "Single-Agent Loops"},
+        {"id": "03b_multi_agent",     "name": "Multi-Agent Systems"},
+        {"id": "03c_hierarchical",    "name": "Hierarchical Orchestration"},
+        {"id": "03d_tool_augmented",  "name": "Tool-Augmented Agents"},
+        {"id": "03e_comparison",      "name": "Comparative Analysis"}
+      ]
+    },
+
+    {
+      "id": "04_systems",
+      "name": "Key Systems",
+      "section_type": "body",
+      "argues_for_thesis_step": "S3",
+      "argument_skeleton": {
+        "claim": "Frontier systems sit firmly at L4 across general-purpose, research, code, and science-automation strands.",
+        "steelman": "...",
+        "evidence_claim_keys": [],
+        "concession": "...",
+        "so_what": "..."
+      },
+      "subsections": [
+        {"id": "04a_general_purpose", "name": "General-Purpose Autonomous Agents"},
+        {"id": "04b_research",        "name": "Research-Focused Agents"},
+        {"id": "04c_code",            "name": "Code-Focused Agents"},
+        {"id": "04d_science",         "name": "Science Automation Agents"},
+        {
+          "id": "04e_feature_matrix",
+          "name": "Feature Comparison Matrix",
+          "section_type": "cross_cutting_matrix",
+          "matrix_axes": {"rows": "systems", "cols": "dimensions"},
+          "expected_rows": 17,
+          "expected_cols": 6,
+          "row_label": "System",
+          "col_labels": [
+            "Autonomy Level",
+            "Architecture",
+            "Domain",
+            "Tools",
+            "Self-Improvement",
+            "Open-Source"
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "05_evaluation",
+      "name": "Evaluation and Benchmarks",
+      "section_type": "body",
+      "argues_for_thesis_step": "S4",
+      "argument_skeleton": {
+        "claim": "Evaluation infrastructure has matured but novelty/quality measures remain primitive.",
+        "steelman": "...",
+        "evidence_claim_keys": [],
+        "concession": "...",
+        "so_what": "..."
+      },
+      "subsections": [
+        {"id": "05a_task_completion",  "name": "Task-Completion Benchmarks"},
+        {"id": "05b_research_quality", "name": "Research Quality Metrics"},
+        {"id": "05c_efficiency",       "name": "Efficiency Metrics"},
+        {"id": "05d_safety",           "name": "Safety Considerations in Evaluation"},
+        {"id": "05e_open_ended",       "name": "Challenges in Evaluating Open-Ended Research"}
+      ]
+    },
+
+    {
+      "id": "06_problems",
+      "name": "Challenges and Open Problems",
+      "section_type": "open_problems",
+      "argues_for_thesis_step": "S5",
+      "items": [
+        {
+          "id": "OP1", "title": "Cognitive loop trap",
+          "description": "Agents perseverate on failed strategies without recognising the loop.",
+          "paired_direction_id": "FD1"
+        },
+        {
+          "id": "OP2", "title": "Context window limitations",
+          "description": "Fixed windows cannot support long-horizon research.",
+          "paired_direction_id": "FD2"
+        },
+        {
+          "id": "OP3", "title": "Evaluation of novel contributions",
+          "description": "No automated measure of originality or research quality.",
+          "paired_direction_id": "FD3"
+        },
+        {
+          "id": "OP4", "title": "Reproducibility and determinism",
+          "description": "Stochastic models + prompt sensitivity break replication.",
+          "paired_direction_id": "FD4"
+        },
+        {
+          "id": "OP5", "title": "Safety and ethics",
+          "description": "Dual-use risk + autonomous self-improvement + academic integrity.",
+          "paired_direction_id": "FD5"
+        },
+        {
+          "id": "OP6", "title": "Cost and accessibility",
+          "description": "Per-task LLM cost concentrates research at well-resourced institutions."
+        }
+      ]
+    },
+
+    {
+      "id": "07_future",
+      "name": "Future Directions",
+      "section_type": "future_directions",
+      "argues_for_thesis_step": null,
+      "items": [
+        {
+          "id": "FD1", "title": "Self-improving agents",
+          "description": "Termination heuristics + meta-cognition for break-out behaviours."
+        },
+        {
+          "id": "FD2", "title": "Persistent knowledge across sessions",
+          "description": "Long-context retrieval + episodic memory + skill libraries."
+        },
+        {
+          "id": "FD3", "title": "Human-AI collaborative research teams",
+          "description": "Workflow patterns where the human is the principal investigator."
+        },
+        {
+          "id": "FD4", "title": "Scaling laws for agent capabilities",
+          "description": "Predictive empirical laws relating compute / data / capability."
+        },
+        {
+          "id": "FD5", "title": "Self-bootstrapping research communities",
+          "description": "Federations of agents that train and evaluate one another."
+        }
+      ]
+    },
+
+    {
+      "id": "08_conclusion",
+      "name": "Conclusion",
+      "section_type": "conclusion",
+      "argues_for_thesis_step": null,
+      "subsections": []
+    }
+  ]
+}

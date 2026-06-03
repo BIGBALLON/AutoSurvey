@@ -1,0 +1,192 @@
+{
+  "tier1_official": [
+    {
+      "name": "HuggingFace Blog",
+      "tier": 1,
+      "feed_url": "https://huggingface.co/blog/feed.xml",
+      "type": "atom",
+      "scope_hint": "all",
+      "rationale": "Open-source LLM hub; BLOOM/StarCoder/SmolLM/OLMo/Zephyr first-publish here"
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "tier": 1,
+      "feed_url": "https://deepmind.google/blog/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "PaLM/Gemini/Gopher/Chinchilla/Gemma; foundational scaling-law content"
+    },
+    {
+      "name": "Meta AI Blog",
+      "tier": 1,
+      "feed_url": "https://research.facebook.com/feed/",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "LLaMA series + OPT + BLOOM collaboration; open and detail-rich"
+    },
+    {
+      "name": "OpenAI Blog",
+      "tier": 1,
+      "feed_url": "https://openai.com/blog/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "GPT-3/4/4o/o1 announcements + system cards"
+    },
+    {
+      "name": "Anthropic News",
+      "tier": 1,
+      "feed_url": "https://www.anthropic.com/news",
+      "type": "html_scrape",
+      "scope_hint": "all",
+      "rationale": "Claude model card; Constitutional AI"
+    },
+    {
+      "name": "AllenAI Blog",
+      "tier": 1,
+      "feed_url": "https://medium.com/feed/ai2-blog",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "OLMo: only fully-open Western pretraining recipe"
+    },
+    {
+      "name": "EleutherAI Blog",
+      "tier": 1,
+      "feed_url": "https://blog.eleuther.ai/index.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "GPT-Neo/J/NeoX/Pythia; scaling research testbed"
+    },
+    {
+      "name": "DeepSeek API News",
+      "tier": 1,
+      "feed_url": "https://api-docs.deepseek.com/news/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "DeepSeek-V2/V3/MoE/Coder; CN lab with most detail"
+    },
+    {
+      "name": "Mistral AI News",
+      "tier": 1,
+      "feed_url": "https://mistral.ai/news/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "Mistral 7B / Mixtral 8x7B,8x22B / Codestral"
+    },
+    {
+      "name": "Qwen Blog",
+      "tier": 1,
+      "feed_url": "https://qwenlm.github.io/blog/index.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "Qwen2/2.5/3 series; full tech reports per release"
+    }
+  ],
+  "tier2_official": [
+    {
+      "name": "xAI Blog",
+      "tier": 2,
+      "feed_url": "https://x.ai/blog",
+      "type": "html_scrape",
+      "scope_hint": "all",
+      "rationale": "Grok 1/2/3 release notes and technical posts"
+    },
+    {
+      "name": "Cohere Blog",
+      "tier": 2,
+      "feed_url": "https://cohere.com/blog/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "Command-R series; retrieval-augmented model details"
+    },
+    {
+      "name": "AI21 Labs Blog",
+      "tier": 2,
+      "feed_url": "https://www.ai21.com/blog/rss.xml",
+      "type": "rss",
+      "scope_hint": "all",
+      "rationale": "Jurassic, Jamba (Mamba+MoE+Transformer hybrid)"
+    },
+    {
+      "name": "Stability AI News",
+      "tier": 2,
+      "feed_url": "https://stability.ai/news",
+      "type": "html_scrape",
+      "scope_hint": "all",
+      "rationale": "StableLM and related open-weight model announcements"
+    },
+    {
+      "name": "01.AI / Yi Releases",
+      "tier": 2,
+      "feed_url": "https://github.com/01-ai/Yi/releases.atom",
+      "type": "atom",
+      "scope_hint": "all",
+      "rationale": "Yi series tech reports and weight releases"
+    },
+    {
+      "name": "Zhipu AI / GLM (THUDM)",
+      "tier": 2,
+      "feed_url": "https://github.com/THUDM/ChatGLM3/releases.atom",
+      "type": "atom",
+      "scope_hint": "all",
+      "rationale": "GLM-4/ChatGLM open-weight releases and tech reports"
+    },
+    {
+      "name": "TII Falcon News",
+      "tier": 2,
+      "feed_url": "https://falconllm.tii.ae/news.html",
+      "type": "html_scrape",
+      "scope_hint": "all",
+      "rationale": "Falcon 7B/40B/180B announcements and tech details"
+    },
+    {
+      "name": "InternLM (Shanghai AI Lab)",
+      "tier": 2,
+      "feed_url": "https://github.com/InternLM/InternLM/releases.atom",
+      "type": "atom",
+      "scope_hint": "all",
+      "rationale": "InternLM 2/2.5 weights and tech reports"
+    }
+  ],
+  "tier3_curated": [
+    {
+      "name": "Lil'Log (Lilian Weng)",
+      "tier": 3,
+      "feed_url": "https://lilianweng.github.io/index.xml",
+      "type": "rss",
+      "scope_hint": "deep_tutorial",
+      "rationale": "Systematic deep blogs (Transformer Family, Attention Mechanisms, LLM Agents); citation-grade"
+    },
+    {
+      "name": "Sebastian Raschka (Ahead of AI)",
+      "tier": 3,
+      "feed_url": "https://magazine.sebastianraschka.com/feed",
+      "type": "rss",
+      "scope_hint": "deep_tutorial",
+      "rationale": "Academic-background engineering blog; scaling/PEFT/quantization deep dives"
+    },
+    {
+      "name": "Eugene Yan",
+      "tier": 3,
+      "feed_url": "https://eugeneyan.com/rss/",
+      "type": "rss",
+      "scope_hint": "applied_ml",
+      "rationale": "Applied ML perspective; complements academic papers"
+    },
+    {
+      "name": "Nathan Lambert (Interconnects)",
+      "tier": 3,
+      "feed_url": "https://www.interconnects.ai/feed",
+      "type": "rss",
+      "scope_hint": "post_training_heavy",
+      "warn_on_exclude": ["RLHF", "alignment", "post-training", "instruction-tuning"],
+      "rationale": "OLMo collaborator; deep model release analyses"
+    }
+  ],
+  "_excluded_with_reason": {
+    "Simon Willison": "AI product reviews / general commentary; less pretraining detail",
+    "Ben Recht (argmin.net)": "ML theory; doesn't cover model details",
+    "Chip Huyen": "ML platforms / MLOps; not model internals",
+    "MiniMax / Baichuan blogs": "Inconsistent blog presence; model cards on HuggingFace (Tier 1) cover them",
+    "Reddit r/MachineLearning, HackerNews": "UGC; quality not curatable"
+  }
+}
